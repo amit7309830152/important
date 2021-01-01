@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function let_const() {
+            if (true) {
+                var first_name = "amit";
+                let midle_name = "kumar";
+                const last_name = "sharma";
+                // let midle_name = "kumar";
+                //con error occure as const value cant be change
+            }
+            console.log(first_name);
+            // console.log(midle_name);
+            // console.log(last_name);
+            //con error will occure as these are the function scope
+        }
+        let_const();
+    </script>
+</body>
+
+</html>

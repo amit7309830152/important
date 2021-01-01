@@ -1,0 +1,30 @@
+<script>
+    class Detail {
+        constructor(name, address) {
+            this.name = name;
+            this.address = address;
+        }
+
+        showDetails() {
+            console.log(`Name is ${this.name} and address is ${this.address}`);
+        }
+    }
+
+    class Students extends Detail {
+        constructor(name, address, id, div) {
+            super(name, address);
+            this.id = id;
+            this.div = div;
+        }
+
+        showStudents() {
+            console.log(`Name is ${this.name} and address is ${this.address} Student id is ${this.id} and division is ${this.div}`);
+        }
+    }
+
+    obj1 = new Detail('amit', 'varanse');
+    // obj1.showDetails();
+    obj1.showStudents();
+    // obj2 = new Students('amit', 'varanse', '123', '7');
+    // obj2.showStudents();
+</script>

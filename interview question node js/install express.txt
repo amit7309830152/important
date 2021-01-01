@@ -1,0 +1,2 @@
+1. npx express-genrator // it install the express and the skeleton
+2. npm install // it install all the dependencies.
