@@ -78,8 +78,6 @@ exports.getDistance = async(req, res, next) => {
 }
 
 // Get distance between the points by the google matrix distace api end
-
-
 // check for business_id and user_id start
 if (req.userdata.business_id != null && req.userdata.business_id != undefined && req.userdata.business_id != '') {
     var business_id = req.userdata.business_id;
@@ -170,11 +168,15 @@ db.query(sql, function(err, result) {
 // update end
 
 // to insert 
+
 var sql = "INSERT INTO business_appointment_person SET ?";
+
 db.query(sql, postval, function(err, result) {});
+
 // insert end
 
 // code for insert is not exist and update if exist
+
 try {
     var data_to_insert = { source_id, target_id, relation_type }
     var sql_count = `SELECT COUNT(*) as count, id FROM user_business_relation WHERE source_id = ${source_id} AND target_id = ${target_id} AND relation_type = ${relation_type}`
@@ -235,6 +237,7 @@ if (result_quotation.affectedRows > 0) {
     if (req.body.comment_5 != '' && req.body.comment_5 != null && req.body.comment_5 != undefined) {
         comments.push([result_quotation.insertId, req.body.comment_5])
     }
+
     if (req.body.comment_6 != '' && req.body.comment_6 != null && req.body.comment_6 != undefined) {
         comments.push([result_quotation.insertId, req.body.comment_6])
     }
@@ -375,3 +378,128 @@ exports.deleteBookingAppointment = async function(req, res, next) {
 // to add the date in js start
 moment().add(i, 'd').toDate();
 // to add the date in js end
+
+// different between the date and time start
+var duration = moment.duration(moment(data_object.updated_at).diff(moment(data_object.created_at)));
+duration = `${duration.asMinutes()} min`
+
+// different between the date and time end
+
+// compare time in moment start 
+var beginningTime = moment('8:45am', 'h:mma');
+var endTime = moment('9:00am', 'h:mma');
+console.log(beginningTime.isBefore(endTime)); // true
+console.log(beginningTime.toDate()); // Mon May 12 2014 08:45:00
+console.log(endTime.toDate()); //
+// compare time in moment end
+
+// add minute in one line
+c = moment(current_time).add(60, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+
+// add minute in one line
+
+// SQL TO FORMAT THE DATE AND TIME START
+
+// DATE_FORMAT(created_datetime, '%d-%m-%Y') AS created_date
+
+// SQL TO FORMAT THE DATE AND TIME END
+
+
+
+// working with the fs start 
+
+var fs = require('fs')
+if (result_get_name != '') {
+    path_photo = '././public/uploads/' + result_get_name[0].photo
+}
+
+if (fs.existsSync(path_photo)) {
+    fs.unlink(path_photo, (error) => {
+        if (error) {
+            return res.status(500).json({ status: 'error', message: 'Something went wrong while changing the profile image' });
+        }
+    })
+}
+// working with the fs end
+
+
+sql_check_email_phone_verify = `SELECT is_phone_verified, is_email_verified from business_master where business_id = '${business_id}'`
+result_check_email_phone_verify = await exports.run_query(sql_check_email_phone_verify)
+
+if (result_check_email_phone_verify[0].is_phone_verified && result_check_email_phone_verify[0].is_email_verified) {
+    return res.send(result_check_email_phone_verify)
+} else {
+    return res.send(business_id)
+}
+
+// calculate distance in the and return the data to according to the distance
+
+sql = `select town_city, trim(substring_index(location,',',1)) AS latitude, trim(substring_index(location,',',-1)) AS longitude, SQRT(\n\
+    POW(69.1 * (trim(substring_index(location,',',1)) - 28.6039667), 2) +\n\
+    POW(69.1 * (77.3710317 - trim(substring_index(location,',',-1))) * COS(trim(substring_index(location,',',1)) / 57.3), 2)) AS distance from business_master where town_city is not null`
+
+// calculate distance in the and return the data to according to the distance
+
+
+// insert business_hour by selecting day wise
+sql = `select business_id from business_master where working_hours = 'Always Open'`
+result = await exports.run_query(sql)
+let days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+array_final = []
+for (let i = 0; i < result.length; i++) {
+    const business_id = result[i].business_id;
+    for (let j = 0; j < days.length; j++) {
+        array_final.push([business_id, days[j], '00:00:00', '23:59:00'])
+    }
+}
+sql_insert = `insert into business_hours (business_id,day,start_hours,end_hours) VALUES ?`
+result_insert = await exports.run_query(sql_insert, [array_final])
+return res.send(result_insert)
+
+// insert business_hour by selecting day wise
+
+// get current month
+
+SELECT created_at
+FROM business_waitlist
+WHERE MONTH(created_at) = MONTH(CURRENT_DATE())
+AND YEAR(created_at) = YEAR(CURRENT_DATE())
+
+// get current month
+
+
+
+// if you want to auto hit the api
+
+var requestLoop = setInterval(function() {
+    request({
+        url: "http://www.google.com",
+        method: "GET",
+        timeout: 10000,
+        followRedirect: true,
+        maxRedirects: 10
+    }, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log('sucess!');
+        } else {
+            console.log('error' + response.statusCode);
+        }
+    });
+}, 60000);
+
+// If you ever want to stop it...  clearInterval(requestLoop)
+
+// if you want to auto hit the api
+
+
+
+// compare date in sql 
+sqlCheckCountDate = `select count(*) as count from business_booking where business_id = '${business_id}' and date(created_datetime) = '${moment(date).format('YYYY-MM-DD')}' and deleted_at is null`
+
+// compare date in sql
+
+// date in format in sql 
+// DATE_FORMAT(created_at, '%d-%b-%Y %H:%i:%s') AS created_at
+
+// photo img_path
+// concat('${img_path}', photo) as photo
