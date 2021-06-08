@@ -503,3 +503,6 @@ sqlCheckCountDate = `select count(*) as count from business_booking where busine
 
 // photo img_path
 // concat('${img_path}', photo) as photo
+
+// All data between time or date interval in mysql
+// b_m.created_at BETWEEN NOW() - INTERVAL 60 DAY AND NOW()
