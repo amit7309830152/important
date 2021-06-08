@@ -1,0 +1,32 @@
+PDFDocument = require('pdf-lib').PDFDocument;
+StandardFonts = require('pdf-lib').StandardFonts;
+fs = require('fs')
+rgb = require('pdf-lib').rgb;
+
+pdfGenerate = async() => {
+    try {
+
+        const pdfDoc = await PDFDocument.create()
+        const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman)
+
+        const page = pdfDoc.addPage()
+        const { width, height } = page.getSize()
+        const fontSize = 30
+        page.drawText('Amit kumar sharma', {
+            x: 1,
+            y: height - 4 * fontSize,
+            size: fontSize,
+            font: timesRomanFont,
+            color: rgb(0, 0.53, 0.71),
+        })
+
+        const pdfBytes = await pdfDoc.save()
+        await fs.writeFileSync('some.pdf', pdfBytes)
+        console.log(pdf);
+    } catch (error) {
+        console.log(`error is ${error}`)
+    }
+
+}
+
+pdfGenerate()

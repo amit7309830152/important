@@ -1,0 +1,63 @@
+<html>
+    <input type="number" id="num">
+    <br>
+    <input type="submit" value="OK" id="btn" onclick="saveNum()">
+    
+    <script>
+        function saveNum() {
+        var n = document.getElementById('num').value;
+        for(var i = 1; i<=n; i++)
+        {
+            for( var s = n ; s>=i ; s--)
+            {
+                document.write("&nbsp");
+            }
+            for(var j = 1 ; j<=i; j++)
+            {
+                document.write("*");
+            }
+            if(i == n) {
+                for(var line = 1 ; line<=s+2; line++)
+                {
+                    document.write("*");
+                }
+            } else {
+                for( var s2 = 4*n ; s2>=2*i ; s2--)
+                {
+                    document.write("&nbsp");
+                }
+            }
+            for(var j2 = 1 ; j2<=i; j2++)
+            {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+
+        for(var i = n-1; i>=1; i--)
+        {
+            for( var s = n ; s>=i ; s--)
+            {
+                document.write("&nbsp");
+            }
+            for(var j = 1 ; j<=i; j++)
+            {
+                document.write("*");
+            }
+
+            for( var s2 = 4*n ; s2>=2*i ; s2--)
+            {
+                document.write("&nbsp");
+            }
+            for(var j2 = 1 ; j2<=i; j2++)
+            {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        }
+
+        
+
+    </script>
+</html>
