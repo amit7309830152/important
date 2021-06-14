@@ -1,15 +1,9 @@
-var a = 2;
-promise = new Promise((res, rej) => {
-    return setTimeout(() => res(2), 1000)
+arr = [1, 2, 3, 54, 6, 1, 2, 3]
+
+arr2 = arr.filter((ele, i, arr) => {
+    if (arr.indexOf(ele, i + 1) === -1) {
+        return ele
+    }
 })
 
-promise.then((result) => {
-    console.log(result)
-    return result * 2
-}).then((result) => {
-    console.log(result)
-    return result * 2
-}).then((result) => {
-    console.log(result)
-    return result * 2
-})
+console.log(arr2)
