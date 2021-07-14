@@ -29,5 +29,97 @@ class ProductController {
             res.status(500).send({ status: false, message: 'Something went wrong', error });
         }
     }
+    static async updateProduct(req, res, next) {
+        let productId;
+        try {
+            if (!req.body.productId) {
+                res.status(400).send({ status: false, message: 'product id is missing' });
+            }
+            else {
+                productId = req.body.productId;
+            }
+            const product = {};
+            if (req.body.isActive) {
+                product.is_active = req.body.isActive;
+            }
+            if (req.body.productId) {
+                product.id = req.body.productId;
+            }
+            if (req.body.price) {
+                product.price = req.body.price;
+            }
+            if (req.body.category) {
+                product.category = req.body.category;
+            }
+            if (req.body.qty) {
+                product.qty = req.body.qty;
+            }
+            if (req.body.max_qty) {
+                product.max_qty = req.body.max_qty;
+            }
+            if (req.body.min_qty) {
+                product.min_qty = req.body.min_qty;
+            }
+            if (req.body.name) {
+                product.name = req.body.name;
+            }
+            await productModel_1.Product.updateProduct(product);
+            res.status(200).send({ status: true, message: 'Product status is updated' });
+        }
+        catch (error) {
+            res.status(500).send({ status: false, message: 'Something went wrong', error });
+        }
+    }
+    static async listProduct(req, res, next) {
+        try {
+            let pageNo = 1;
+            let key = undefined;
+            let priceRangeStart = 0;
+            let priceRangeEnd = 0;
+            if (req.query.key) {
+                key = req.query.key;
+            }
+            if (req.query.priceRangeStart) {
+                priceRangeStart = +req.query.priceRangeStart;
+            }
+            if (req.query.priceRangeEnd) {
+                priceRangeEnd = +req.query.priceRangeEnd;
+            }
+            if (req.query.pageNo) {
+                pageNo = +req.query.pageNo;
+            }
+            let productList = await productModel_1.Product.getList(+pageNo, key, priceRangeStart, priceRangeEnd);
+            if (productList) {
+                res.status(200).send({ status: true, message: 'New user data', data: { product_list: productList } });
+            }
+            else {
+                res.status(404).send({ status: false, message: 'No product is found' });
+            }
+        }
+        catch (error) {
+            console.log('error', error);
+            console.error(error);
+            res.status(500).send({ status: false, message: 'Something went wrong' });
+        }
+    }
+    static async detailProduct(req, res, next) {
+        try {
+            if (req.params.id) {
+                const productDetail = await productModel_1.Product.getDetail(+req.params.id);
+                if (productDetail) {
+                    return res.status(200).send({ status: true, message: 'success', data: { product: productDetail } });
+                }
+                else {
+                    return res.status(404).send({ status: false, message: 'No product is found with this product id' });
+                }
+            }
+            else {
+                return res.status(404).send({ status: false, message: 'Id is missing' });
+            }
+        }
+        catch (error) {
+            return res.status(500).send({ status: false, message: 'Something went wrong' });
+        }
+    }
 }
 exports.ProductController = ProductController;
