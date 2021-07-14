@@ -1,14 +1,14 @@
 // error check first
 
-var data = fs.readFile("file.txt", (err, data) => { // this is the call back
-    if (err) {
-        console.log(err); //checking the error first this is error check first
-        return;
-    } else {
-        console.log(data);
-    }
+// var data = fs.readFile("file.txt", (err, data) => { // this is the call back
+//     if (err) {
+//         console.log(err); //checking the error first this is error check first
+//         return;
+//     } else {
+//         console.log(data);
+//     }
 
-})
+// })
 
 // how can we avoid call back hell??
 //  we should use promises
@@ -28,8 +28,11 @@ var data = fs.readFile("file.txt", (err, data) => { // this is the call back
 //  security concerns with npm.
 
 // How to handle the async function in node??
+
 // what is enumeration?
+
 // different bet callback and promise
+
 
 // callback
 // -it can call many times 
@@ -54,7 +57,7 @@ var data = fs.readFile("file.txt", (err, data) => { // this is the call back
 // it is the use to create event and do some stuff on that particular event
 
 // var eventEmitter = new EventSource.EventEmitter();
-// eventEmitter.on('event1',()=>{
+// eventEmitter.on('event1', () => {
 //     console.log('event is called');
 // })
 

@@ -1,0 +1,14 @@
+{
+  "name": "js_concept",
+  "version": "1.0.0",
+  "description": "",
+  "main": "async_hook.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.9"
+  }
+}

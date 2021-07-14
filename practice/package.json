@@ -1,19 +1,21 @@
 {
-  "name": "nodejs",
-  "version": "1.0.0",
-  "description": "My first nodejs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "amit",
-    "kumar"
-  ],
-  "author": "amit kumar",
-  "license": "MIT",
-  "dependencies": {
-    "mongoose": "^5.8.11",
-    "pdf-lib": "^1.13.0"
-  }
+    "name": "nodejs",
+    "version": "1.0.0",
+    "description": "My first nodejs",
+
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./p.js"
+    },
+    "keywords": [
+        "amit",
+        "kumar"
+    ],
+    "author": "amit kumar",
+    "license": "MIT",
+    "dependencies": {
+        "mongoose": "^5.8.11",
+        "nodemon": "^2.0.7",
+        "pdf-lib": "^1.13.0"
+    }
 }

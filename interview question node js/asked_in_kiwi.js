@@ -36,6 +36,16 @@
 
 // }
 
+// correct solution
+// finalar = arr.filter((e, i) => {
+
+//     if (arr[i].age > 20) {
+//         return false
+//     }
+//     return true
+// })
+
+
 // const arr = ["aa", "bb"]
 //     //  can be modify or not
 // arr.push('tt')

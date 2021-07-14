@@ -1,14 +1,53 @@
-let str = 'javascriptloops';
-let vowel = ''
-let consonent = ''
-for (let i = 0; i < str.length - 1; i++) {
-    if (str.charAt(i) == 'a' || str.charAt(i) == 'A' || str.charAt(i) == 'e' || str.charAt(i) == 'E' || str.charAt(i) == 'i' || str.charAt(i) == 'I' || str.charAt(i) == 'o' || str.charAt(i) == 'O' || str.charAt(i) == 'u' || str.charAt(i) == 'U') {
-        console.log(str.charAt(i))
-    } else {
-        consonent += str.charAt(i);
+// interview of algowork
+
+// sum = (num) => {
+//     total = (num * (num + 1)) / 2
+//     return total
+// }
+// console.log(sum(50))
+
+// let i;
+// for (i = 0; i < 3; i++) {
+//     ((i) => {
+//         const log = () => {
+//             console.log(i);
+//         }
+//         setTimeout(function() { log() }, 100);
+//     })(i)
+// }
+
+// i = 0 log(0) 0
+// i = 1 log(1) 1
+// i = 2 log(2) 2 3
+
+
+// reverse = (str) => {
+//     str2 = ''
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         str2 += str.charAt(i)
+//     }
+//     return str2
+// }
+
+
+reverse = (str) => {
+    let i = str.length - 1
+    str2 = ''
+    mid = str.length / 2
+    while (i >= str.length / 2) {
+        c1 = str.charAt(str.length - 1 - i)
+        c2 = str.charAt(i)
+        str = str.split('')
+        str[str.length - 1 - i] = c2
+        str[i] = c1
+        str = str.join('')
+        i--
     }
+    return str
 }
-let final_length = consonent.length > vowel.length ? consonent.length : vowel.length
-for (let j = 0; j < final_length; j++) {
-    console.log(consonent.charAt(j))
-}
+
+console.log(reverse('amit kumar'));
+
+// console.log('amit kuamr'.replaceAt(0, 'yy'));
+
+// sql = 'select max(salary) from sal where salary > max(salary)'
