@@ -11,6 +11,8 @@ const app = express_1.default();
 app.use(body_parser_1.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(morgan_1.default('dev'));
+// postgresql check connection
+// import { Db } from './config/db';
 // Db.dbConnect().authenticate().then(() => {
 //     console.log('Database connected by sequelize orm');
 // }).catch((err: Error) => console.log('Error : ' + err))

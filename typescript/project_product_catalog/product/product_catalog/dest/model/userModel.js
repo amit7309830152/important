@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
+const db_1 = require("../config/db");
 const { DataTypes, Model } = require('sequelize');
 // type newUser = Omit<IUser, 'id'>
 class User extends Model {
@@ -40,21 +41,21 @@ class User extends Model {
     }
 }
 exports.User = User;
-// User.init({
-//     name: {
-//         type: DataTypes.STRING
-//     },
-//     password: {
-//         type: DataTypes.STRING
-//     },
-//     mobile: {
-//         type: DataTypes.STRING
-//     },
-//     email: {
-//         type: DataTypes.STRING
-//     },
-// }, {
-//     sequelize: Db.dbConnect(),
-//     tableName: 'User',
-//     timestamps: false
-// });
+User.init({
+    name: {
+        type: DataTypes.STRING
+    },
+    password: {
+        type: DataTypes.STRING
+    },
+    mobile: {
+        type: DataTypes.STRING
+    },
+    email: {
+        type: DataTypes.STRING
+    },
+}, {
+    sequelize: db_1.Db.dbConnect(),
+    tableName: 'User',
+    timestamps: false
+});

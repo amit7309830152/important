@@ -13,7 +13,7 @@ interface IUser {
 
 // type newUser = Omit<IUser, 'id'>
 
-export class User extends Model {
+export class User extends Model<IUser> implements IUser {
     id: number;
     name: string;
     mobile: number;
@@ -56,22 +56,22 @@ export class User extends Model {
     }
 }
 
-// User.init({
-//     name: {
-//         type: DataTypes.STRING
-//     },
-//     password: {
-//         type: DataTypes.STRING
-//     },
-//     mobile: {
-//         type: DataTypes.STRING
-//     },
-//     email: {
-//         type: DataTypes.STRING
-//     },
-// }, {
-//     sequelize: Db.dbConnect(),
-//     tableName: 'User',
-//     timestamps: false
-// });
+User.init({
+    name: {
+        type: DataTypes.STRING
+    },
+    password: {
+        type: DataTypes.STRING
+    },
+    mobile: {
+        type: DataTypes.STRING
+    },
+    email: {
+        type: DataTypes.STRING
+    },
+}, {
+    sequelize: Db.dbConnect(),
+    tableName: 'User',
+    timestamps: false
+});
 

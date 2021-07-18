@@ -1,14 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Db = void 0;
-// const pool = new Pool({
-//     user: "postgres",
-//     password: "root",
-//     host: "localhost",
-//     port: 5432,
-//     database: "product_catalog"
-// });
-// export { pool }
 const Sequelize = require('sequelize');
 class Db {
     static dbConnect() {
