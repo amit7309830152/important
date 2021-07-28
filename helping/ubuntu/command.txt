@@ -1,0 +1,13 @@
+Postgres
+
+service postgres
+
+service postgres status
+
+
+sudo su postgre // for the start the postgre
+
+
+alter user postgres with password 'root'; // change the password
+
+
