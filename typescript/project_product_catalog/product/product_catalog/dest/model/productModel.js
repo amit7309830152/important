@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Product = void 0;
 const db_1 = require("../config/db");
 const sequelize_1 = require("sequelize");
 const { DataTypes, Model } = require('sequelize');
@@ -124,16 +123,19 @@ Product.init({
         type: DataTypes.INTEGER
     },
     max_qty: {
-        type: DataTypes.NUMBER
+        type: DataTypes.INTEGER
     },
     min_qty: {
-        type: DataTypes.NUMBER
+        type: DataTypes.INTEGER
     },
     is_active: {
-        type: DataTypes.NUMBER
+        type: DataTypes.INTEGER
     }
 }, {
     sequelize: db_1.Db.dbConnect(),
     tableName: 'Product',
     timestamps: false
+});
+Product.sync().then(() => {
+    console.log('Product table created');
 });

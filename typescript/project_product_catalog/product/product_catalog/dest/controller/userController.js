@@ -1,9 +1,8 @@
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = void 0;
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const userModel_1 = require("../model/userModel");
@@ -36,7 +35,8 @@ class UserController {
     }
     static async getUser(req, res, next) {
         try {
-            const resultDb = await userModel_1.User.getUser(req.headers.tokenDetail.mobile);
+            // const resultDb = await User.getUser(req.headers.tokenDetail.mobile)
+            const resultDb = await userModel_1.User.getUser(8896406322);
             res.status(200).send({ status: true, message: 'success', data: resultDb });
         }
         catch (error) {

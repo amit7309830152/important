@@ -148,16 +148,20 @@ Product.init({
         type: DataTypes.INTEGER
     },
     max_qty: {
-        type: DataTypes.NUMBER
+        type: DataTypes.INTEGER
     },
     min_qty: {
-        type: DataTypes.NUMBER
+        type: DataTypes.INTEGER
     },
     is_active: {
-        type: DataTypes.NUMBER
+        type: DataTypes.INTEGER
     }
 }, {
     sequelize: Db.dbConnect(),
     tableName: 'Product',
     timestamps: false
+});
+
+Product.sync().then(() => {
+    console.log('Product table created');
 });

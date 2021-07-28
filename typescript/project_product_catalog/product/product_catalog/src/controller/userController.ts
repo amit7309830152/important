@@ -31,7 +31,8 @@ export class UserController {
 
     public static async getUser(req: Request | any, res: Response, next: NextFunction) {
         try {
-            const resultDb = await User.getUser(req.headers.tokenDetail.mobile)
+            // const resultDb = await User.getUser(req.headers.tokenDetail.mobile)
+            const resultDb = await User.getUser(8896406322)
             res.status(200).send({ status: true, message: 'success', data: resultDb })
         } catch (error) {
             res.status(500).send({ status: false, message: 'Something went wrong' })

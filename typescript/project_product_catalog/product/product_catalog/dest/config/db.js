@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Db = void 0;
 // const pool = new Pool({
 //     user: "postgres",
 //     password: "root",

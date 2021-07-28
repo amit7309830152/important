@@ -13,9 +13,9 @@ app.use(morgan('dev'));
 // postgresql check connection
 
 import { Db } from './config/db';
-// Db.dbConnect().authenticate().then(() => {
-//     console.log('Database connected by sequelize orm');
-// }).catch((err: Error) => console.log('Error : ' + err))
+Db.dbConnect().authenticate().then(() => {
+    console.log('Database connected by sequelize orm');
+}).catch((err: Error) => console.log('Error : ' + err))
 
 /* 
 All the route files

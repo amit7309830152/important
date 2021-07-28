@@ -9,7 +9,7 @@ import { UserController } from '../controller/userController';
 router.post('/', UserController.createUser);
 
 router.post('/login', UserController.login);
-
-router.get('/', Auth.auth, UserController.getUser);
+router.get('/', UserController.getUser);
+// router.get('/', Auth.auth, UserController.getUser);
 
 export default router;

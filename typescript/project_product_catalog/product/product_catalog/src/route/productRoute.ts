@@ -7,7 +7,8 @@ import { Auth } from '../middleware/auth';
 import { ProductController } from '../controller/productController';
 
 // // Only / for create the product
-router.post('/', Auth.auth, ProductController.createProduct);
+// router.post('/', Auth.auth, ProductController.createProduct);
+router.post('/', ProductController.createProduct);
 
 // use always id as params
 router.put('/', Auth.auth, ProductController.updateProduct);

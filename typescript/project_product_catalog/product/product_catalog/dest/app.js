@@ -1,7 +1,7 @@
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+}
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = require("body-parser");
@@ -11,9 +11,11 @@ const app = express_1.default();
 app.use(body_parser_1.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(morgan_1.default('dev'));
-// Db.dbConnect().authenticate().then(() => {
-//     console.log('Database connected by sequelize orm');
-// }).catch((err: Error) => console.log('Error : ' + err))
+// postgresql check connection
+const db_1 = require("./config/db");
+db_1.Db.dbConnect().authenticate().then(() => {
+    console.log('Database connected by sequelize orm');
+}).catch((err) => console.log('Error : ' + err));
 /*
 All the route files
 */

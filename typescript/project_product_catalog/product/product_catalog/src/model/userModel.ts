@@ -38,6 +38,7 @@ export class User extends Model {
             })
             return resultDb
         } catch (error) {
+            console.log('error', error);
             throw new Error(error);
         }
     }
@@ -56,22 +57,27 @@ export class User extends Model {
     }
 }
 
-// User.init({
-//     name: {
-//         type: DataTypes.STRING
-//     },
-//     password: {
-//         type: DataTypes.STRING
-//     },
-//     mobile: {
-//         type: DataTypes.STRING
-//     },
-//     email: {
-//         type: DataTypes.STRING
-//     },
-// }, {
-//     sequelize: Db.dbConnect(),
-//     tableName: 'User',
-//     timestamps: false
-// });
+User.init({
+    name: {
+        type: DataTypes.STRING
+    },
+    password: {
+        type: DataTypes.STRING
+    },
+    mobile: {
+        type: DataTypes.STRING
+    },
+    email: {
+        type: DataTypes.STRING
+    },
+}, {
+    sequelize: Db.dbConnect(),
+    tableName: 'User',
+    timestamps: false
+});
 
+
+
+User.sync().then(() => {
+    console.log('User table created');
+});

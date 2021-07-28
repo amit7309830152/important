@@ -6,7 +6,8 @@ const auth_1 = require("../middleware/auth");
 // /* Import controller */
 const productController_1 = require("../controller/productController");
 // // Only / for create the product
-router.post('/', auth_1.Auth.auth, productController_1.ProductController.createProduct);
+// router.post('/', Auth.auth, ProductController.createProduct);
+router.post('/', productController_1.ProductController.createProduct);
 // use always id as params
 router.put('/', auth_1.Auth.auth, productController_1.ProductController.updateProduct);
 // // To get the list 
