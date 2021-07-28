@@ -1,6 +1,6 @@
 import { Db } from '../config/db';
 import bcrypt from "bcryptjs";
-import { Op } from "sequelize";
+import { Op, Optional } from "sequelize";
 const { DataTypes, Model } = require('sequelize');
 
 interface IProduct {
@@ -9,26 +9,28 @@ interface IProduct {
     price: number,
     category: string,
     qty: number,
-    max_qty: number,
-    min_qty: number,
-    is_active: number,
+    maxQty: number,
+    minQty: number,
+    isActive: number,
     createdAt?: string,
     deletedAt?: string
 }
 
-type newProduct = Omit<IProduct, 'id' | 'isActive'>
-type updateProduct = Partial<IProduct>
+// type newProduct = Omit<IProduct, 'id' | 'isActive'>
 
+interface INewProduct extends Optional<IProduct, "id"> { }
 
-export class Product extends Model {
+interface updateProduct extends Partial<IProduct> { }
+
+export class Product extends Model<IProduct, INewProduct> implements IProduct {
     id: number;
     name: string;
     price: number;
     category: string;
     qty: number;
-    max_qty: number;
-    min_qty: number;
-    is_active: number;
+    maxQty: number;
+    minQty: number;
+    isActive: number;
     createdAt?: string;
     deletedAt?: string;
 
@@ -39,9 +41,9 @@ export class Product extends Model {
         this.price = product.price;
         this.category = product.category;
         this.qty = product.qty;
-        this.max_qty = product.max_qty;
-        this.min_qty = product.min_qty;
-        this.is_active = product.is_active;
+        this.maxQty = product.maxQty;
+        this.minQty = product.minQty;
+        this.isActive = product.isActive;
     }
 
     public static async updateProduct<Product extends IProduct>(product: updateProduct) {

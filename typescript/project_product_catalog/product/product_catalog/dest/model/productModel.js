@@ -11,9 +11,9 @@ class Product extends Model {
         this.price = product.price;
         this.category = product.category;
         this.qty = product.qty;
-        this.max_qty = product.max_qty;
-        this.min_qty = product.min_qty;
-        this.is_active = product.is_active;
+        this.maxQty = product.maxQty;
+        this.minQty = product.minQty;
+        this.isActive = product.isActive;
     }
     static async updateProduct(product) {
         try {

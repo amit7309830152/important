@@ -9,18 +9,18 @@ class ProductController {
                 price: req.body.price,
                 category: req.body.category,
                 qty: req.body.qty,
-                max_qty: req.body.maxQty,
-                min_qty: req.body.minQty,
-                is_active: 1
+                maxQty: req.body.maxQty,
+                minQty: req.body.minQty,
+                isActive: 1
             });
             const product = await productModel_1.Product.create({
                 name: req.body.name,
                 price: req.body.price,
                 category: req.body.category,
                 qty: req.body.qty,
-                max_qty: req.body.maxQty,
-                min_qty: req.body.minQty,
-                is_active: 1
+                maxQty: req.body.maxQty,
+                minQty: req.body.minQty,
+                isActive: 1
             });
             res.status(200).send({ status: true, message: 'New product created', data: product });
         }
@@ -39,7 +39,7 @@ class ProductController {
             }
             const product = {};
             if (req.body.isActive) {
-                product.is_active = req.body.isActive;
+                product.isActive = req.body.isActive;
             }
             if (req.body.productId) {
                 product.id = req.body.productId;
@@ -53,11 +53,11 @@ class ProductController {
             if (req.body.qty) {
                 product.qty = req.body.qty;
             }
-            if (req.body.max_qty) {
-                product.max_qty = req.body.max_qty;
+            if (req.body.maxQty) {
+                product.maxQty = req.body.maxQty;
             }
-            if (req.body.min_qty) {
-                product.min_qty = req.body.min_qty;
+            if (req.body.minQty) {
+                product.minQty = req.body.minQty;
             }
             if (req.body.name) {
                 product.name = req.body.name;

@@ -51,4 +51,3 @@ exports.__esModule = true;
 //     address:String
 // }
 // type PersonName = Pick<Person,'name'>
-// ----------------records----------------------

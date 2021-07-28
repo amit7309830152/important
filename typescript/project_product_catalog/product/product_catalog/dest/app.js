@@ -16,10 +16,6 @@ const db_1 = require("./config/db");
 db_1.Db.dbConnect().authenticate().then(() => {
     console.log('Database connected by sequelize orm');
 }).catch((err) => console.log('Error : ' + err));
-/*
-All the route files
-*/
-// userRoute
 const userRoute_1 = __importDefault(require("./route/userRoute"));
 // productRoute
 const productRoute_1 = __importDefault(require("./route/productRoute"));

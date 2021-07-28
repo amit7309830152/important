@@ -13,7 +13,7 @@ interface IUser {
 
 // type newUser = Omit<IUser, 'id'>
 
-export class User extends Model {
+export class User extends Model<IUser> implements IUser {
     id: number;
     name: string;
     mobile: number;

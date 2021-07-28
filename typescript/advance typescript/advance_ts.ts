@@ -1,10 +1,10 @@
-export {}
+export { }
 
 // ---------Conditional Types------------
 
 type SomeType = string
 
-type MyConditionalType = SomeType extends string ?string:null
+type MyConditionalType = SomeType extends string ? string : null
 // Above line means if SomeType is assignable to string then string or null
 // if SomeType can take string then MyConditionType will become string else null
 
@@ -75,8 +75,8 @@ type MyConditionalType = SomeType extends string ?string:null
 // -------------------Mapped types-----------------
 
 export type Point = {
-    x:number,
-    y:number
+    x: number,
+    y: number
 }
 
 
@@ -155,4 +155,3 @@ export type Point = {
 // type PersonName = Pick<Person,'name'>
 
 
-// ----------------records----------------------
