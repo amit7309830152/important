@@ -1,0 +1,16 @@
+<header class="text-center danger w-100">
+    {{title}}
+
+    <div class="d-flex justify-content-center w-75 m-auto border border-danger">
+        <button type="button" class="btn btn-primary" (click)="isClickProductListHandler()">Create new product</button>
+        <button type="button" class="btn btn-primary" (click)="isClickProductSaveHandler()">List of product</button>
+    </div>
+
+    <div *ngIf="isClickProductList">
+        <app-product-list></app-product-list>
+    </div>
+
+    <div *ngIf="isClickProductSave">
+        <app-product-save></app-product-save>
+    </div>
+</header>
