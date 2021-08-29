@@ -1,4 +1,5 @@
-// ------------------Decorators--------------------
+
+// ------------------Decorators notes--------------------
 // -It start whene the class is defined not when the class is initialize or the object is made.
 
 // -type of decorator
