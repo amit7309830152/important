@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.myContainer = void 0;
 var inversify_1 = require("inversify");
 var types_1 = require("./types");
 var entities_1 = require("./entities");

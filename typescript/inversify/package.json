@@ -1,13 +1,18 @@
 {
-    "name": "inversify",
-    "version": "1.0.0",
-    "description": "",
-    "main": "./dest/server.js",
-    "dependencies": {},
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC"
+  "name": "inversify",
+  "version": "1.0.0",
+  "main": "./dest/server.js",
+  "dependencies": {
+    "inversify": "^5.1.1",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

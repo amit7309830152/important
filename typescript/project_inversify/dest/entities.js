@@ -12,7 +12,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Shuriken = exports.Katana = exports.Ninja = void 0;
 var inversify_1 = require("inversify");
 require("reflect-metadata");
 var types_1 = require("./types");

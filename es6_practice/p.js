@@ -1,8 +1,4 @@
-// let a = [1, 2, 3];
-// let b = [4, 5, 6];
-
-// let c = [...a, ...b]
-
-
-// console.log(a + b); //it will become string
-// console.log(c);
+const a = [1, 2, 3, [5, 6, 7, 8, 5, [2, 3, 5]]]
+    // b = [7, 8, 9]
+    // console.log(a.flat(2));
+console.log(a);
